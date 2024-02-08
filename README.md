@@ -1,10 +1,9 @@
 ## RPN Calculator for real and complex numbers
 
-
-MX Linux |   | Windows
-- |-  | - 
-![](./docs/RPN_ComplexCalc.png) |    | ![](./docs/RPN_CaptureWin.png)
-
+| MX Linux                       | Windows                      |
+| :----------------------------- |  :-------------------------- |
+| ![](./docs/RPN_ComplexCalc.png)|  ![](./docs/RPN_CaptureWin.png)|
+ 
 Run:    **python3** rpnCompCalc.py 
 
 [English documentation](./docs/RPN_ComplexCalc.pdf)
@@ -13,19 +12,23 @@ Run:    **python3** rpnCompCalc.py
 
 # Reverse Polish Notation (RPN)
 
-First input the numbers, then the operator (+, \| ...). There are two
-fields for numbers and two additional registers U and T.
+First the numbers, then the operator ($+$, $*$ ...). The **X-Field** is the Input-Field. The **Enter** button
+copies the value from the **X-Field** to the **Y-Field**. 
 
-  - The lower field (**X-Field**) for input.
+The stack of the calculator
 
-  - The field above (**Y-Field**) get the numbers from the X-Field or from
-    the U register.
+  |Field      |   Stack  |               |
+  |:-------   |:-------- |:-------------:|
+  |T-Register |0.0000    |not visible    |
+  |U-Register |0.0000   |not visible     |
+  |Y-Field    |0.0000   | visible        |
+  |X-Field    |0.0000   | visible        |
 
-Calculate $35 + 14.7 = 49.7$:  Keystrokes --> 35 **Enter** 14.7 + or 14.7 **Enter** 35 +  
+Calculate $35 + 14.7 = 49.7$:  Keystrokes --> 35 **Enter** 14.7 **+** or 14.7 **Enter** 35 **+**  
 
-Calculate $(35 + 14.7) | 7 = 347.9$ :  Keystrokes --> 35 **Enter** 14.7 + 7 | 
+Calculate $(35 + 14.7) * 7 = 347.9$ :  Keystrokes --> 35 **Enter** 14.7 **+** 7 $*$
  
-A RPN calculator do not need brackets\!
+A RPN calculator do not need brackets!
 
 Complex numbers
 
@@ -33,6 +36,7 @@ Complex numbers are two-dimensional numbers, with a real- and imaginary
 part. Calculation is similar to binomial theorem. 
 
 $$ (a+b)^2 = a^2 + 2ab + b^2 \qquad \text{binomial theorem} $$
+
 $$ (a+ib)^2 = a^2 + i2ab - b^2 = a^2 - b^2 + i2ab \qquad \text{Complex number} $$
 
 Get $-b^2$ because of $i^{2} = -1$.  
@@ -43,15 +47,15 @@ There are two ways to represent complex numbers:
 
   - Polar coordinates $|r||e^{i\varphi}$ (Pol)
 
-Operating instructions
+# Operating instructions
 
 The complex number 3 + i5 in rectangular coordinates (Rect): 
 
-Keystrokes --> 3 ||Enter|| 5 ||cplx|| 
+Keystrokes --> 3 **Enter** 5 **cplx** 
   
 The real part 3 in the Y-Field and the imaginary part 5 in the X-Field.
 
-#Trigonometric Functions
+# Trigonometric Functions
 
 The right triangle in a circle with the radius $r = 1$. 
 
@@ -72,7 +76,7 @@ The input (Pol and Deg):
 | cplx                  | 1.0000  $\angle$ 30   | 0.0000    |
 | Rect                  | 0.8660  i 0.5000 		| 0.0000    |
 | cplx                  | 0.5000           		| 0.8660 	|
-| x$\Leftrightarrow$y 	| 0.8660           		| 0.5000 	|
+| x<>y    	| 0.8660           		| 0.5000 	|
 | /                     | 0.5774           		| 0.0000    |
 
 The $\sin(30 ^\circ) = 0.5$, the $\cos(30 ^\circ) = 0.866$. The last
@@ -83,11 +87,11 @@ Backwards for the atan (Rect and Deg):
 | Input                 | X-Field                   | Y-Field    |
 | :-------------------- | :-------------------------| :--------- |
 | 1                     | 1                      	| 0.5774     |
-| x$\Leftrightarrow$y 	| 0.5774                 	| 1.0000 	 |
+| x<>y 	| 0.5774                 	| 1.0000 	 |
 | cplx                  | 1.0000 i 0.5774           | 0.0000     |
 | Pol                   | 1.1547 $\angle$ 30.0000 	| 0.0000     |
 
-#Homers last theorem
+# Homers last theorem
 
 Calculation with big numbers. The Simpsons and Fermat’s last theorem!
 
@@ -112,7 +116,7 @@ One of the author of the of the TV-series wrote a C-Programm to find this equati
 | $y^x$   | 6.3977e+43 | 6.3977e+43 |            |
 
 The left and the right side of the equation are equal\!. But the
-toggle-button shows, that Fermat’s last theorem was not disproved.
+toggle-button **prec** shows, that Fermat’s last theorem was not disproved.
 
 # Keyboard
 
@@ -127,15 +131,15 @@ toggle-button shows, that Fermat’s last theorem was not disproved.
 | g 		|Radian to Degree  	(Degree: German --> Grad)|
 | b 		|Degree to Radian  	(Radian: German --> Bogenmaß)|
 | a 		|ShowPreciseDisplay	(accurate)|
-| s 		|+/- --> sign|
+| s 		|+/- (sign)|
 | +			|Addition|
 | -			|Subtraction|
 | m 		|Multipication
 | d 		|Division
 | i 		|1/x (inversion)|
-| x 		|e^x (x sounds like ex)|
+| x 		|$e^x$ (x sounds like ex)|
 | w 		|Square root (German --> Wurzel ziehen)|
-| t 		|y^x (to the power)|
+| t 		|$y^x$ (to the power)|
 | l 		|ln(x)|
 | k 		|pi (German --> Kreiszahl)|
 | o 		|delX (rub out)|
