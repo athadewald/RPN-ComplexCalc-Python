@@ -30,7 +30,7 @@ Calculate $(35 + 14.7) * 7 = 347.9$ :  Keystrokes --> 35 **Enter** 14.7 **+** 7 
  
 A RPN calculator do not need brackets!
 
-Complex numbers
+# Complex numbers
 
 Complex numbers are two-dimensional numbers, with a real- and imaginary
 part. Calculation is similar to binomial theorem. 
@@ -46,8 +46,6 @@ There are two ways to represent complex numbers:
   - Rectangular coordinates (a + ib) (Rect)
 
   - Polar coordinates $|r||e^{i\varphi}$ (Pol)
-
-# Operating instructions
 
 The complex number 3 + i5 in rectangular coordinates (Rect): 
 
