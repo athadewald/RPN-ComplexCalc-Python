@@ -478,6 +478,17 @@ class ComplexCalculator(Frame):
         self.overrideFlag = True
         self.showDisplays()
 
+    def angleCorrection(self, value):
+        if self.isDeg.get():
+            degRadValue = 360.0
+        else:
+            degRadValue = 2*pi
+        if abs(value) >= degRadValue:
+            return value%degRadValue
+        if abs(value) >= degRadValue/2 and abs(value) < degRadValue:
+           return value%(degRadValue/2) - degRadValue/2
+        return value
+
     def press_complex(self, event=None):
         self.checkDisplayInput(self.onDisplayX.get())
         if isinstance(self.numX, complex):
@@ -495,7 +506,7 @@ class ComplexCalculator(Frame):
                 if not self.isPolar.get():
                     self.numX = complex(float(self.numY), float(self.numX))
                 else:
-                    self.numX = self.numY, self.numX
+                    self.numX = self.numY, self.angleCorrection(self.numX)
                 self.dropStack() # U = T, Y = U
             except Exception:
                 valX = "Error"
