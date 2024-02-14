@@ -483,11 +483,10 @@ class ComplexCalculator(Frame):
             degRadValue = 360.0
         else:
             degRadValue = 2*pi
-        if abs(value) >= degRadValue:
-            return value%degRadValue
-        if abs(value) >= degRadValue/2 and abs(value) < degRadValue:
-           return value%(degRadValue/2) - degRadValue/2
-        return value
+        retValue = value%degRadValue
+        if abs(retValue) > degRadValue/2:
+           retValue = retValue%(degRadValue/2) - degRadValue/2
+        return retValue
 
     def press_complex(self, event=None):
         self.checkDisplayInput(self.onDisplayX.get())
