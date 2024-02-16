@@ -244,7 +244,7 @@ class ComplexCalculator(Frame):
             self.showDisplays()
 
     def polar2rect(self,betrag, phi):  # cmath.rect, WEGEN COS(90) NICHT NULL!
-        if phi == pi/2:
+        if phi == pi/2 or phi == -pi/2:
             return betrag * (0.0 + sin(phi)*1j)
         elif phi == pi:
             return betrag * (cos(phi) + 0.0*1j)
