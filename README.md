@@ -8,7 +8,7 @@ Run:    **python3** rpnCompCalc.py
 
 [English documentation](./docs/RPN_ComplexCalc.pdf)
 
-[Deutsche Documentation](./docs/UPN_Taschenrechner.pdf)
+[Deutsche Dokumentation](./docs/UPN_Taschenrechner.pdf)
 
 # Reverse Polish Notation (RPN)
 
